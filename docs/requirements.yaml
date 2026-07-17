@@ -1,0 +1,61 @@
+# ひだかや ランディングページ要件定義
+
+project:
+  name: ひだかや
+  repo: hidaka-gyoza
+  description: 餃子専門店「ひだかや」のブランド LP。店内飲食とお取り寄せ餃子を訴求する。
+  stack:
+    - Next.js (App Router)
+    - TypeScript
+    - Tailwind CSS
+  deploy: Vercel
+
+pages:
+  - path: /
+    type: landing
+    purpose: ブランド認知・来店誘導・お取り寄せ導線
+
+sections:
+  - id: hero
+    required: true
+    content:
+      - brand: ひだかや
+      - headline: 一粒に、職人の火入れ。
+      - support: 焼き立ての香ばしさと、ご自宅で楽しむお取り寄せ餃子。
+      - cta:
+          - label: お取り寄せを見る
+            href: "#order"
+          - label: 店舗情報
+            href: "#store"
+      - visual: フルブリードの餃子ヒーロー画像
+
+  - id: craft
+    required: true
+    purpose: こだわり・製法の紹介
+
+  - id: products
+    required: true
+    purpose: 看板メニューとお取り寄せ商品の紹介
+
+  - id: order
+    required: true
+    purpose: お取り寄せの流れと注文 CTA
+
+  - id: store
+    required: true
+    purpose: 店舗情報・営業時間・アクセス
+
+  - id: footer
+    required: true
+
+constraints:
+  - 要件にない機能（決済・会員・CMS・カート実装など）は実装しない
+  - お取り寄せ CTA は外部注文フォームまたは mailto / 電話導線でよい（MVP）
+  - レスポンシブ対応（モバイル / デスクトップ）
+  - Docker でローカル起動可能であること
+
+out_of_scope:
+  - オンライン決済
+  - 在庫管理
+  - 管理画面
+  - 多言語対応
