@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/Reveal";
 import {
   CRAFT_POINTS,
@@ -121,10 +122,10 @@ export function OrderSection() {
 
         <Reveal className="mt-14 flex flex-wrap items-center gap-4">
           <a
-            href={`mailto:${SITE.email}?subject=${encodeURIComponent("お取り寄せのご注文")}`}
+            href="#contact"
             className="inline-flex bg-chili px-8 py-4 text-sm tracking-wider text-paper transition hover:bg-chili-deep"
           >
-            メールで注文する
+            お問い合わせフォームへ
           </a>
           <a
             href={`tel:${SITE.phone.replace(/-/g, "")}`}
@@ -132,6 +133,27 @@ export function OrderSection() {
           >
             電話する {SITE.phone}
           </a>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+export function ContactSection() {
+  return (
+    <section id="contact" className="border-t border-paper/10 bg-charcoal/40 px-5 py-24 md:px-10 md:py-32">
+      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-start">
+        <Reveal>
+          <p className="mb-4 text-xs tracking-[0.35em] text-gold">CONTACT</p>
+          <h2 className="font-[family-name:var(--font-display)] text-3xl tracking-[0.12em] md:text-5xl">
+            お問い合わせ
+          </h2>
+          <p className="mt-5 max-w-md text-muted">
+            お取り寄せのご相談やご質問は、こちらのフォームからどうぞ。送信後、確認メールをお送りします。
+          </p>
+        </Reveal>
+        <Reveal>
+          <ContactForm />
         </Reveal>
       </div>
     </section>

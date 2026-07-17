@@ -1,5 +1,6 @@
 import { Hero } from "@/components/Hero";
 import {
+  ContactSection,
   CraftSection,
   OrderSection,
   ProductsSection,
@@ -14,6 +15,7 @@ export default function Home() {
       <CraftSection />
       <ProductsSection />
       <OrderSection />
+      <ContactSection />
       <StoreSection />
       <SiteFooter />
     </main>

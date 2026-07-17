@@ -36,6 +36,9 @@ export function Hero() {
           <a href="#order" className="transition hover:text-gold">
             お取り寄せ
           </a>
+          <a href="#contact" className="transition hover:text-gold">
+            お問い合わせ
+          </a>
           <a href="#store" className="transition hover:text-gold">
             店舗
           </a>

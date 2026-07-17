@@ -8,6 +8,7 @@ project:
     - Next.js (App Router)
     - TypeScript
     - Tailwind CSS
+    - Resend（問い合わせメール送信）
   deploy: Vercel
 
 pages:
@@ -39,7 +40,15 @@ sections:
 
   - id: order
     required: true
-    purpose: お取り寄せの流れと注文 CTA
+    purpose: お取り寄せの流れと問い合わせ導線
+
+  - id: contact
+    required: true
+    purpose: シンプルな問い合わせフォーム（氏名・メール・内容）
+    behavior:
+      - Resend で店舗へ通知メールを送信（replyTo はお客様のメール）
+      - Resend でお客様へ受付完了の自動返信を送信
+      - サーバー側で入力バリデーション
 
   - id: store
     required: true
@@ -48,14 +57,20 @@ sections:
   - id: footer
     required: true
 
+env:
+  - RESEND_API_KEY
+  - CONTACT_TO_EMAIL
+  - RESEND_FROM_EMAIL
+
 constraints:
   - 要件にない機能（決済・会員・CMS・カート実装など）は実装しない
-  - お取り寄せ CTA は外部注文フォームまたは mailto / 電話導線でよい（MVP）
   - レスポンシブ対応（モバイル / デスクトップ）
   - Docker でローカル起動可能であること
+  - API キーは環境変数のみ（コミット禁止）
 
 out_of_scope:
   - オンライン決済
   - 在庫管理
   - 管理画面
   - 多言語対応
+  - 問い合わせ履歴の DB 保存
